@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible"
+    content="ie=edge">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+    crossorigin="anonymous">
+  <title>bootstrap validator example</title>
+</head>
+
+<body>
+  <div class="container">
+    <form style="margin-top:5rem;"
+      data-bv-raise="input"
+      novalidate>
+
+      <div class="form-group">
+        <label class="control-label">Name</label>
+        <input type="email"
+          class="form-control"
+          placeholder="Enter name">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Email address</label>
+        <input type="email"
+          class="form-control"
+          placeholder="Enter email"
+          data-bv
+          data-bv-email="true"
+          data-bv-email-message="Email is not valid.">
+      </div>
+
+      <div class="form-group">
+        <label class="control-label">Password</label>
+        <input type="password"
+          class="form-control"
+          placeholder="Password"
+          data-bv="true"
+          data-bv-require="true"
+          data-bv-require-message="Password is required."
+          data-bv-minlength="8"
+          data-bv-minlength-message="Minium length is 8.">
+      </div>
+
+      <button type="submit"
+        class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+  <script src="jquery-3.4.1.min.js"></script>
+  <script src="bootstrap-validator-3.4.1.js"></script>
+  <script>
+    $( function () {
+      $( 'form' ).bootstrapValidator( {
+        raise: 'change'
+      } );
+    } );
+  </script>
+</body>
+
+</html>
